@@ -17,7 +17,7 @@ export default function ContactPage() {
             Let's Connect
           </h1>
           <p className="text-lg text-muted-foreground">
-            Feel free to reach out for opportunities or just to chat about tech.
+            Feel free to reach out for opportunities.
           </p>
         </div>
 

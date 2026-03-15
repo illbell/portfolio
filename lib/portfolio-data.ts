@@ -4,17 +4,19 @@ export const portfolioData = {
   bio: "I'm a passionate developer specializing in building modern, scalable web applications. With experience in both frontend and backend technologies, I love creating seamless user experiences and robust APIs.",
 
   skills: [
-    { name: "TypeScript", icon: "TypeScript" },
-    { name: "React", icon: "React" },
-    { name: "Next.js", icon: "Zap" },
-    { name: "Node.js", icon: "Server" },
-    { name: "PostgreSQL", icon: "Database" },
-    { name: "MySQL", icon: "Database" },
-    { name: "Tailwind CSS", icon: "Palette" },
-    { name: "Git", icon: "GitBranch" },
-    { name: "Docker", icon: "Box" },
-    { name: "REST APIs", icon: "Network" },
-    { name: "GraphQL", icon: "Layers" },
+    { name: "TypeScript", icon: "TypeScript", category: "frontend" },
+    { name: "React", icon: "React", category: "frontend" },
+    { name: "Next.js", icon: "Zap", category: "frontend" },
+    { name: "Tailwind CSS", icon: "Palette", category: "frontend" },
+
+    { name: "Node.js", icon: "Server", category: "backend" },
+    { name: "Express.js", icon: "Layers", category: "backend" },
+    { name: "PostgreSQL", icon: "Database", category: "backend" },
+    { name: "MySQL", icon: "Database", category: "backend" },
+    { name: "REST APIs", icon: "Network", category: "backend" },
+
+    { name: "Git", icon: "GitBranch", category: "others" },
+    { name: "Docker", icon: "Box", category: "others" },
   ],
 
   experience: [
@@ -50,9 +52,8 @@ export const portfolioData = {
     phone: "+639223439959",
     location: "Santa Maria, Bulacan",
     social: [
-      { name: "GitHub", url: "https://github.com", icon: "Github" },
-      { name: "LinkedIn", url: "https://linkedin.com", icon: "Linkedin" },
-      { name: "Twitter", url: "https://twitter.com", icon: "Twitter" },
+      { name: "GitHub", url: "https://github.com/illbell", icon: "Github" },
+      { name: "Facebook", url: "https://www.facebook.com/meistroe/", icon: "Facebook" },
     ],
   },
 };

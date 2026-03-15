@@ -1,8 +1,7 @@
 import { portfolioData } from "@/lib/portfolio-data";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import HeroTypeWriter from "@/components/typewriter";
+import HeroButtons from "@/components/hero-buttons";
 
 export default function OverviewPage() {
   return (
@@ -23,22 +22,7 @@ export default function OverviewPage() {
               {portfolioData.bio}
             </p>
 
-            <div className="flex gap-4 flex-wrap">
-              <Link
-                href="/skills"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-medium rounded-lg hover:opacity-90 transition-opacity"
-              >
-                View Skills
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary transition-colors"
-              >
-                Get in Touch
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+            <HeroButtons />
           </div>
 
           <div className="flex justify-center">
@@ -57,7 +41,7 @@ export default function OverviewPage() {
         <div className="grid grid-cols-3 gap-6 border-t border-border pt-12">
           <div>
             <p className="text-4xl font-bold text-accent">
-              {1.5}+
+              {2}+
             </p>
             <p className="text-muted-foreground text-sm">Years Experience</p>
           </div>
