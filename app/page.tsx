@@ -2,6 +2,7 @@ import { portfolioData } from "@/lib/portfolio-data";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import HeroTypeWriter from "@/components/typewriter";
 
 export default function OverviewPage() {
   return (
@@ -67,8 +68,8 @@ export default function OverviewPage() {
             <p className="text-muted-foreground text-sm">Technologies</p>
           </div>
           <div>
-            <p className="text-4xl font-bold text-accent">100+</p>
-            <p className="text-muted-foreground text-sm">Projects Completed</p>
+            <p className="text-muted-foreground text-sm">I Know</p>
+            <HeroTypeWriter />
           </div>
         </div>
       </div>

@@ -9,13 +9,12 @@ export const portfolioData = {
     { name: "Next.js", icon: "Zap" },
     { name: "Node.js", icon: "Server" },
     { name: "PostgreSQL", icon: "Database" },
+    { name: "MySQL", icon: "Database" },
     { name: "Tailwind CSS", icon: "Palette" },
     { name: "Git", icon: "GitBranch" },
     { name: "Docker", icon: "Box" },
     { name: "REST APIs", icon: "Network" },
     { name: "GraphQL", icon: "Layers" },
-    { name: "AWS", icon: "Cloud" },
-    { name: "Testing", icon: "CheckCircle2" },
   ],
 
   experience: [
