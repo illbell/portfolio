@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { portfolioData } from "@/lib/portfolio-data";
 import { getIcon } from "@/lib/icon-map";
-import { motion } from "framer-motion"
+import { motion, scale } from "framer-motion"
 
 export default function SkillsPage() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'frontend' | 'backend' | 'other'>('all');
@@ -42,8 +42,8 @@ export default function SkillsPage() {
                 whileTap={{ scale: 0.95 }}
                 layout
                 className={`px-6 py-2 rounded-lg font-medium transition-colors ${isActive
-                    ? "bg-accent text-accent-foreground shadow-md"
-                    : "bg-secondary text-foreground border border-border hover:border-accent"
+                  ? "bg-accent text-accent-foreground shadow-md"
+                  : "bg-secondary text-foreground border border-border hover:border-accent"
                   }`}
               >
                 {filter.label}
@@ -55,20 +55,46 @@ export default function SkillsPage() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredSkills.map((skill) => {
             const Icon = getIcon(skill.icon);
+            const MotionIcon = motion(Icon);
+
             return (
               <motion.div
                 key={skill.name}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.8 }}
-                className="group relative bg-card border border-border rounded-lg p-6 hover:border-accent hover:shadow-lg cursor-default overflow-hidden"
+                initial="initial"
+                whileHover="hover"
+                className="group relative bg-card border border-border rounded-lg p-6 hover:border-accent hover:shadow-lg"
+                variants={{ hover: { scale: 1.1 } }}
               >
-                {/* Background gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100" />
 
                 <div className="relative flex flex-col items-center gap-3 text-center">
-                  <div className="text-accent">
-                    <Icon className="w-8 h-8" />
-                  </div>
+                  <MotionIcon
+                    className="w-10 h-10"
+                    variants={{
+                      initial: {
+                        color: "oklch(0.55 0.2 262)",
+                        scale: 1,
+                        rotate:0
+                      },
+                      hover: {
+                        color: [
+                          "oklch(0.55 0.2 262)",
+                          "oklch(0.65 0.25 270)",
+                          "oklch(0.60 0.18 290)",
+                          "oklch(0.55 0.2 262)",
+                        ],
+                        scale: [1, 1.2, 1],
+                        rotate:[0,5,-5,0],
+                        transition: {
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        },
+                      },
+
+                    }}
+
+                  />
+
                   <p className="font-semibold text-foreground">{skill.name}</p>
                 </div>
               </motion.div>

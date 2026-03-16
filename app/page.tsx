@@ -38,7 +38,7 @@ export default function OverviewPage() {
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-3 gap-6 border-t border-border pt-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-border pt-12">
           <div>
             <p className="text-4xl font-bold text-accent">
               {2}+
@@ -51,7 +51,7 @@ export default function OverviewPage() {
             </p>
             <p className="text-muted-foreground text-sm">Technologies</p>
           </div>
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <p className="text-muted-foreground text-sm">I Know</p>
             <HeroTypeWriter />
           </div>
