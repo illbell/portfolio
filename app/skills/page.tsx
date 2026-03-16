@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { portfolioData } from "@/lib/portfolio-data";
 import { getIcon } from "@/lib/icon-map";
-import { motion, scale } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 
 export default function SkillsPage() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'frontend' | 'backend' | 'other'>('all');
@@ -53,53 +53,54 @@ export default function SkillsPage() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredSkills.map((skill) => {
-            const Icon = getIcon(skill.icon);
-            const MotionIcon = motion(Icon);
+          <AnimatePresence>
+            {filteredSkills.map((skill) => {
+              const Icon = getIcon(skill.icon);
+              const MotionIcon = motion(Icon);
 
-            return (
-              <motion.div
-                key={skill.name}
-                initial="initial"
-                whileHover="hover"
-                className="group relative bg-card border border-border rounded-lg p-6 hover:border-accent hover:shadow-lg"
-                variants={{ hover: { scale: 1.1 } }}
-              >
-
-                <div className="relative flex flex-col items-center gap-3 text-center">
-                  <MotionIcon
-                    className="w-10 h-10"
-                    variants={{
-                      initial: {
-                        color: "oklch(0.55 0.2 262)",
-                        scale: 1,
-                        rotate:0
-                      },
-                      hover: {
-                        color: [
-                          "oklch(0.55 0.2 262)",
-                          "oklch(0.65 0.25 270)",
-                          "oklch(0.60 0.18 290)",
-                          "oklch(0.55 0.2 262)",
-                        ],
-                        scale: [1, 1.2, 1],
-                        rotate:[0,5,-5,0],
-                        transition: {
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
+              return (
+                <motion.div
+                  key={skill.name}
+                  layout // enables smooth re-layout when filtering
+                  initial="initial"
+                  whileHover="hover"
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  variants={{ hover: { scale: 1.1 } }}
+                  className="group relative bg-card border border-border rounded-lg p-6 hover:border-accent hover:shadow-lg"
+                >
+                  <div className="relative flex flex-col items-center gap-3 text-center">
+                    <MotionIcon
+                      className="w-10 h-10"
+                      variants={{
+                        initial: {
+                          color: "oklch(0.55 0.2 262)",
+                          scale: 1,
+                          rotate: 0,
                         },
-                      },
-
-                    }}
-
-                  />
-
-                  <p className="font-semibold text-foreground">{skill.name}</p>
-                </div>
-              </motion.div>
-            );
-          })}
+                        hover: {
+                          color: [
+                            "oklch(0.55 0.2 262)",
+                            "oklch(0.65 0.25 270)",
+                            "oklch(0.60 0.18 290)",
+                            "oklch(0.55 0.2 262)",
+                          ],
+                          scale: [1, 1.2, 1],
+                          rotate: [0, 5, -5, 0],
+                          transition: {
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          },
+                        },
+                      }}
+                    />
+                    <p className="font-semibold text-foreground">{skill.name}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
       </div>
     </div>
