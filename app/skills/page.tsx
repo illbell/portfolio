@@ -3,10 +3,27 @@
 import { useState } from 'react';
 import { portfolioData } from "@/lib/portfolio-data";
 import { getIcon } from "@/lib/icon-map";
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion } from "motion/react"
+import { useAnimateStore } from '@/providers/animate-store-provider';
+
+const sectionContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+}
+
+const sectionItem = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+}
+
 
 export default function SkillsPage() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'frontend' | 'backend' | 'other'>('all');
+  const { skillsAnimated, skillsHasAnimated } = useAnimateStore((state) => state);
 
   const filteredSkills = activeFilter === 'all'
     ? portfolioData.skills
@@ -22,35 +39,47 @@ export default function SkillsPage() {
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-4xl mx-auto px-6 py-16">
-        <div className="mb-12">
-          <h1 className="text-5xl font-bold text-foreground mb-4">Skills & Technologies</h1>
-          <p className="text-lg text-muted-foreground">
+        <motion.div
+          className="mb-12"
+          variants={sectionContainer}
+          initial={skillsAnimated ? "show" : "hidden"} // skip animation if already animated
+          animate="show"
+          onAnimationComplete={() => {
+            if (!skillsAnimated) skillsHasAnimated(); // set global flag
+          }}
+        >
+          {/* Heading */}
+          <motion.h1 className="text-5xl font-bold text-foreground mb-4" variants={sectionItem}>
+            Skills & Technologies
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p className="text-lg text-muted-foreground" variants={sectionItem}>
             A comprehensive overview of my technical expertise and tools I use daily.
-          </p>
-        </div>
+          </motion.p>
 
-        {/* Filter buttons */}
-        <div className="flex flex-wrap gap-3 mb-12">
-          {filters.map((filter) => {
-            const isActive = activeFilter === filter.value
-
-            return (
-              <motion.button
-                key={filter.value}
-                onClick={() => setActiveFilter(filter.value)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                layout
-                className={`px-6 py-2 rounded-lg font-medium transition-colors ${isActive
-                  ? "bg-accent text-accent-foreground shadow-md"
-                  : "bg-secondary text-foreground border border-border hover:border-accent"
-                  }`}
-              >
-                {filter.label}
-              </motion.button>
-            )
-          })}
-        </div>
+          {/* Filter buttons */}
+          <motion.div className="flex flex-wrap gap-3 mt-6" variants={sectionItem}>
+            {filters.map((filter) => {
+              const isActive = activeFilter === filter.value
+              return (
+                <motion.button
+                  key={filter.value}
+                  onClick={() => setActiveFilter(filter.value)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  layout
+                  className={`px-6 py-2 rounded-lg font-medium transition-colors ${isActive
+                      ? "bg-accent text-accent-foreground shadow-md"
+                      : "bg-secondary text-foreground border border-border hover:border-accent"
+                    }`}
+                >
+                  {filter.label}
+                </motion.button>
+              )
+            })}
+          </motion.div>
+        </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <AnimatePresence>
@@ -61,7 +90,7 @@ export default function SkillsPage() {
               return (
                 <motion.div
                   key={skill.name}
-                  layout // enables smooth re-layout when filtering
+                  layout
                   initial="initial"
                   whileHover="hover"
                   animate={{ opacity: 1, y: 0 }}
