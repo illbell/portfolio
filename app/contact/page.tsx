@@ -2,6 +2,8 @@ import { portfolioData } from "@/lib/portfolio-data";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 import { getSocialIcon } from "@/lib/social-icons";
+import { motion } from 'motion/react';
+import ContactInfo from "@/components/contact/contact";
 
 export const metadata = {
   title: "Contact - Andre Alonzo",
@@ -21,83 +23,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            {/* Email */}
-            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-start gap-4">
-                <Mail className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                  <Link
-                    href={`mailto:${portfolioData.contact.email}`}
-                    className="text-accent hover:text-accent/80 transition-colors break-all"
-                  >
-                    {portfolioData.contact.email}
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Phone */}
-            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-start gap-4">
-                <Phone className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                  <Link
-                    href={`tel:${portfolioData.contact.phone}`}
-                    className="text-accent hover:text-accent/80 transition-colors"
-                  >
-                    {portfolioData.contact.phone}
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Location */}
-            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">
-                    Location
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {portfolioData.contact.location}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Social Links */}
-          <div>
-            <h2 className="text-2xl font-bold text-foreground mb-6">
-              Follow Me
-            </h2>
-            <div className="space-y-4">
-              {portfolioData.contact.social.map((social) => {
-                const Icon = getSocialIcon(social.icon);
-                return (
-                  <Link
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 bg-card border border-border rounded-lg hover:border-accent hover:shadow-lg transition-all group"
-                  >
-                    <Icon className="w-6 h-6 text-accent group-hover:text-accent/80 transition-colors" />
-                    <span className="font-medium text-foreground group-hover:text-accent transition-colors">
-                      {social.name}
-                    </span>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+        <ContactInfo />
 
         {/* Call to Action */}
         <div className="mt-16 bg-accent/5 border border-accent/20 rounded-lg p-8 text-center">

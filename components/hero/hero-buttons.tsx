@@ -9,7 +9,7 @@ const MotionArrow = motion(ArrowRight)
 export default function HeroButtons() {
     return (
         <div className="flex gap-4 flex-wrap">
-            <motion.div whileHover="hover" animate="rest" className="inline-block" variants={{ hover: { scale: 1.1 } }}>
+            <motion.div whileHover="hover" whileTap="hover" animate="rest" className="inline-block" variants={{ hover: { scale: 1.1 } }}>
                 <Link
                     href="/skills"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-medium rounded-lg hover:opacity-90 transition-opacity"
@@ -32,7 +32,7 @@ export default function HeroButtons() {
                 </Link>
             </motion.div>
 
-            <motion.div whileHover="hover" animate="rest" className="inline-block" variants={{ hover: { scale: 1.1 } }}>
+            <motion.div whileHover="hover" whileTap="hover" animate="rest" className="inline-block" variants={{ hover: { scale: 1.1 } }}>
                 <Link
                     href="/contact"
                     className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary transition-colors"

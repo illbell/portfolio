@@ -93,6 +93,7 @@ export default function SkillsPage() {
                   layout
                   initial="initial"
                   whileHover="hover"
+                  whileTap="hover"
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   variants={{ hover: { scale: 1.1 } }}

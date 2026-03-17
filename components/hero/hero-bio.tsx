@@ -30,7 +30,6 @@ export default function HeroSection() {
       <motion.div
         className="flex flex-col gap-8"
         variants={container}
-        // use the global flag here:
         initial={heroAnimated ? "show" : "hidden"}
         animate="show"
         onAnimationComplete={() => {
