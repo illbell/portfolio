@@ -5,6 +5,7 @@ import { portfolioData } from '@/lib/portfolio-data';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { getSocialIcon } from '@/lib/social-icons';
+import { useAnimateStore } from '@/providers/animate-store-provider';
 
 const container = {
   hidden: {},
@@ -20,9 +21,19 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-export default function ContactInfo() {
+export default function ContactInfoMotion() {
+  const { contactAnimated, contactHasAnimated } = useAnimateStore((state) => state);
+
   return (
-    <motion.div className="grid md:grid-cols-2 gap-12" variants={container} initial="hidden" animate="show">
+    <motion.div
+      className="grid md:grid-cols-2 gap-12"
+      variants={container}
+      initial={contactAnimated ? 'show' : 'hidden'}
+      animate="show"
+      onAnimationComplete={() => {
+        if (!contactAnimated) contactHasAnimated?.();
+      }}
+    >
       {/* Contact Information */}
       <motion.div className="space-y-8" variants={item}>
         {/* Email */}
