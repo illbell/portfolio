@@ -26,6 +26,7 @@ export const portfolioData = {
     { name: "Git", icon: "Git", category: "other" },
     { name: "Bash", icon: "Bash", category: "other" },
     { name: "Docker", icon: "Docker", category: "other" },
+    { name: "Coolify", icon: "Coolify", category: "other" },
     { name: "VSCode", icon: "VSCode", category: "other" },
   ],
 
@@ -49,7 +50,7 @@ export const portfolioData = {
       title: "Fullstack Developer",
       company: "Mater Dei Academy (Project Based)",
       period: "2026",
-      description: "Expanded my stack by learning Payload CMS and became more AI-enabled, integrating agents into my coding and brainstorming workflow to move faster and solve problems more effectively.",
+      description: "Expanded my stack by learning Payload CMS and Coolify for deployments, and became more AI-enabled, integrating agents into my coding and brainstorming workflow to move faster and solve problems more effectively.",
       projectUrl: "https://www.materdei.edu.ph",
     },
   ],
