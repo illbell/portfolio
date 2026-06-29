@@ -2,7 +2,7 @@ import { BsTypescript, BsCode } from "react-icons/bs";
 import { FaReact, FaNodeJs  } from "react-icons/fa";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { TbBrandFramerMotion, TbBrandReactNative, TbApi   } from "react-icons/tb";
-import { SiShadcnui,SiExpress, SiHono, SiTypeorm, SiPostgresql, SiMysql, SiPostman, SiGit, SiGnubash , SiDocker     } from "react-icons/si";
+import { SiShadcnui,SiExpress, SiHono, SiTypeorm, SiPostgresql, SiMysql, SiPostman, SiGit, SiGnubash , SiDocker, SiPayloadcms     } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
 import { IconType } from "react-icons/lib";
@@ -27,7 +27,8 @@ const iconMap: Record<string, IconType> = {
   Git:SiGit,
   Bash:SiGnubash ,
   Docker:SiDocker ,
-  VSCode:VscVscode
+  VSCode:VscVscode,
+  Payload:SiPayloadcms,
 
 };
 

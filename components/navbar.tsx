@@ -3,6 +3,7 @@
 import { portfolioData } from "@/lib/portfolio-data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
 
 const navItems = [
   { label: "Overview", href: "/" },
@@ -28,13 +29,20 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition-colors ${
+              className={`relative text-sm font-medium transition-colors pb-1 ${
                 pathname === item.href
-                  ? "text-accent border-b-2 border-accent"
+                  ? "text-accent"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {item.label}
+              {pathname === item.href && (
+                <motion.span
+                  layoutId="navbar-underline"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent rounded-full"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
             </Link>
           ))}
         </div>

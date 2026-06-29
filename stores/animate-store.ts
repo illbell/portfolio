@@ -5,6 +5,7 @@ export type AnimateState = {
     skillsAnimated: boolean
     experienceAnimated: boolean
     contactAnimated: boolean
+    projectsAnimated: boolean
 }
 
 export type AnimateActions = {
@@ -12,6 +13,7 @@ export type AnimateActions = {
     skillsHasAnimated: () => void
     experienceHasAnimated: () => void
     contactHasAnimated: () => void
+    projectsHasAnimated: () => void
 }
 
 export type AnimateStore = AnimateState & AnimateActions
@@ -20,7 +22,8 @@ export const defaultInitState: AnimateState = {
     heroAnimated: false,
     skillsAnimated: false,
     experienceAnimated: false,
-    contactAnimated: false
+    contactAnimated: false,
+    projectsAnimated: false,
 }
 
 export const createAnimateStore = (
@@ -32,5 +35,6 @@ export const createAnimateStore = (
         skillsHasAnimated: () => set((state) => ({ skillsAnimated: true })),
         experienceHasAnimated: () => set((state) => ({ experienceAnimated: true })),
         contactHasAnimated: () => set((state) => ({ contactAnimated: true })),
+        projectsHasAnimated: () => set(() => ({ projectsAnimated: true })),
     }))
 }

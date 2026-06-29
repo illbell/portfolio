@@ -1,7 +1,8 @@
 import EducationTimeline from "@/components/experience/education";
 import ExperienceTimeline from "@/components/experience/experience";
+import ProjectsGrid from "@/components/projects/projects";
 import { portfolioData } from "@/lib/portfolio-data";
-import { Briefcase, BookOpen } from "lucide-react";
+import { Briefcase, BookOpen, FolderOpen } from "lucide-react";
 
 export const metadata = {
   title: "Experience & Education - Andre Alonzo",
@@ -20,6 +21,15 @@ export default function ExperiencePage() {
           </div>
 
           <ExperienceTimeline/>
+        </div>
+
+        {/* Projects Section */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-12">
+            <FolderOpen className="w-6 h-6 text-accent" />
+            <h2 className="text-4xl font-bold text-foreground">Projects</h2>
+          </div>
+          <ProjectsGrid />
         </div>
 
         <EducationTimeline/>

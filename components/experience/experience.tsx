@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import { useAnimateStore } from '@/providers/animate-store-provider';
 import { portfolioData } from '@/lib/portfolio-data';
+import { ExternalLink } from 'lucide-react';
 
 const timelineContainer = {
   hidden: {},
@@ -57,6 +58,17 @@ export default function ExperienceTimeline() {
               <span className="text-muted-foreground font-medium whitespace-nowrap">{job.period}</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">{job.description}</p>
+            {'projectUrl' in job && job.projectUrl && (
+              <a
+                href={job.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-accent hover:underline"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                Live Site
+              </a>
+            )}
           </motion.div>
         </motion.div>
       ))}

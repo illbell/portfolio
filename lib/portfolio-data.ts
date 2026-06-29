@@ -9,10 +9,11 @@ export const portfolioData = {
     { name: "React Native", icon: "ReactNative", category: "frontend" },
     { name: "Next.js", icon: "Nextjs", category: "frontend" },
     { name: "Tailwind CSS", icon: "Tailwind", category: "frontend" },
-    { name: "Framer Motion", icon: "FramerMotion", category: "frontend" },
+    { name: "Motion", icon: "FramerMotion", category: "frontend" },
     { name: "Shadcn", icon: "Shadcn", category: "frontend" },
     { name: "React Native Paper", icon: "ReactNative", category: "frontend" },
 
+    { name: "Payload CMS", icon: "Payload", category: "backend" },
     { name: "Node.js", icon: "Node", category: "backend" },
     { name: "Express.js", icon: "Express", category: "backend" },
     { name: "Hono", icon: "Hono", category: "backend" },
@@ -42,6 +43,24 @@ export const portfolioData = {
       company: "Teligent Systems",
       period: "2024 - 2026",
       description: "As I gained more experience in software development, I started taking on both frontend and backend responsibilities. My frontend work mainly involves React, while on the backend I work with Hono, Express, TypeORM, and SQL.",
+    },
+    {
+      id: 3,
+      title: "Fullstack Developer",
+      company: "Mater Dei Academy (Project Based)",
+      period: "2026",
+      description: "Expanded my stack by learning Payload CMS and became more AI-enabled, integrating agents into my coding and brainstorming workflow to move faster and solve problems more effectively.",
+      projectUrl: "https://www.materdei.edu.ph",
+    },
+  ],
+
+  projects: [
+    {
+      id: 1,
+      name: "Mater Dei Academy",
+      description: "Official website for Mater Dei Academy. Built and deployed end-to-end, covering design, development, and hosting.",
+      image: "/mda.webp",
+      url: "https://www.materdei.edu.ph",
     },
   ],
 
