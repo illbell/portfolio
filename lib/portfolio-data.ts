@@ -48,7 +48,7 @@ export const portfolioData = {
     {
       id: 3,
       title: "Fullstack Developer",
-      company: "Mater Dei Academy (Project Based)",
+      company: "Mater Dei Academy (Freelance)",
       period: "2026",
       description: "Expanded my stack by learning Payload CMS and Coolify for deployments, and became more AI-enabled, integrating agents into my coding and brainstorming workflow to move faster and solve problems more effectively.",
       projectUrl: "https://www.materdei.edu.ph",
